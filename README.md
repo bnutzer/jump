@@ -6,7 +6,7 @@ Jump! is a Chrome extension that lets you navigate to your favorite URLs instant
 
 ## What it does
 
-- **Omnibox:** Type `j` followed by a space and a shortcut key to jump straight to a URL. For example, `j gh` takes you to GitHub.
+- **Omnibox:** Type `j` followed by a space and a shortcut key to jump straight to a URL. For example, `j g` takes you to GitHub.
 - **Popup:** Click the extension icon to see all your shortcuts as a clickable list.
 - **Options page:** Add, edit, delete, import, and export your shortcuts.
 
