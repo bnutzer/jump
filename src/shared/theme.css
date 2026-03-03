@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Jump! — Shared theme
+   Colors derived from the J! icon: teal-to-mint hexagonal gradient
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Bungee';
+    src: url('/fonts/Bungee-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Palette */
+    --jump-teal: #4ecdc4;
+    --jump-mint: #a8e6cf;
+    --jump-green: #56c596;
+    --jump-deep-teal: #2ab7a9;
+    --jump-cyan: #7dd3e0;
+
+    --gradient-primary: linear-gradient(
+        135deg,
+        #56c596 0%,
+        #4ecdc4 50%,
+        #7dd3e0 100%
+    );
+
+    /* Semantic tokens — light theme */
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f5fafa;
+    --color-bg-hover: #eaf4f3;
+    --color-text: #1a2332;
+    --color-text-secondary: #5a6b7a;
+    --color-border: #d8e2e6;
+
+    --color-primary: #3db8a9;
+    --color-primary-hover: #2fa89a;
+    --color-primary-text: #ffffff;
+
+    --color-link: #2a9d8f;
+    --color-link-hover: #1f7a6f;
+
+    --color-code-bg: #eaf4f3;
+    --color-code-text: #1a2332;
+
+    --color-danger: #e05a4a;
+    --color-danger-hover: #c84030;
+
+    --color-btn-bg: #eef2f3;
+    --color-btn-hover: #dfe6e8;
+    --color-btn-text: #1a2332;
+    --color-btn-border: #d0d8dc;
+
+    --color-input-bg: #ffffff;
+    --color-input-border: #c8d4da;
+    --color-input-focus: #4ecdc4;
+
+    --color-shadow: rgba(26, 35, 50, 0.08);
+    --color-shadow-md: rgba(26, 35, 50, 0.12);
+
+    --radius: 8px;
+    --radius-sm: 5px;
+    --radius-lg: 12px;
+}
+
+[data-theme='dark'] {
+    --color-bg: #1a2332;
+    --color-bg-secondary: #212d3f;
+    --color-bg-hover: #283548;
+    --color-text: #e0e8f0;
+    --color-text-secondary: #8899a8;
+    --color-border: #2d3f52;
+
+    --color-primary: #4ecdc4;
+    --color-primary-hover: #62d8d0;
+    --color-primary-text: #1a2332;
+
+    --color-link: #5fd8d0;
+    --color-link-hover: #78e4dd;
+
+    --color-code-bg: #253040;
+    --color-code-text: #e0e8f0;
+
+    --color-danger: #ef6b5b;
+    --color-danger-hover: #f5857a;
+
+    --color-btn-bg: #253040;
+    --color-btn-hover: #2d3f52;
+    --color-btn-text: #e0e8f0;
+    --color-btn-border: #3a4f65;
+
+    --color-input-bg: #253040;
+    --color-input-border: #3a4f65;
+    --color-input-focus: #4ecdc4;
+
+    --color-shadow: rgba(0, 0, 0, 0.25);
+    --color-shadow-md: rgba(0, 0, 0, 0.35);
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto,
+        sans-serif;
+    line-height: 1.5;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+code {
+    font-family:
+        ui-monospace, 'SF Mono', 'Cascadia Code', 'Source Code Pro', Menlo,
+        monospace;
+    background: var(--color-code-bg);
+    color: var(--color-code-text);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+}

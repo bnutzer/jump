@@ -1,0 +1,14 @@
+{
+    "d": {
+        "url": "https://duckduckgo.com/",
+        "description": "Duckduck Go (SAMPLE)"
+    },
+    "g": {
+        "url": "https://github.com/bnutzer/jump",
+        "description": "Jump! github repository (SAMPLE)"
+    },
+    "j": {
+        "url": "https://www.jump-shortcuts.click/",
+        "description": "Jump! web site (SAMPLE)"
+    }
+}

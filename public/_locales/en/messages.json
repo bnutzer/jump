@@ -1,0 +1,240 @@
+{
+  "extName": {
+    "message": "Jump!",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Quickly jump to configured URLs",
+    "description": "Extension description"
+  },
+  "loading": {
+    "message": "Loading\u2026",
+    "description": "Loading state text"
+  },
+  "popupHeading": {
+    "message": "Jump!",
+    "description": "Popup heading and page title"
+  },
+  "popupEmpty": {
+    "message": "No jump targets configured.",
+    "description": "Shown when no targets are configured"
+  },
+  "popupEditTargets": {
+    "message": "Edit targets",
+    "description": "Link to options page"
+  },
+  "optionsHeading": {
+    "message": "Jump! — Configuration",
+    "description": "Options page heading and page title"
+  },
+  "colKey": {
+    "message": "Key",
+    "description": "Table column header for target key"
+  },
+  "colUrl": {
+    "message": "URL",
+    "description": "Table column header for URL"
+  },
+  "colDescription": {
+    "message": "Description",
+    "description": "Table column header for description"
+  },
+  "colActions": {
+    "message": "Actions",
+    "description": "Table column header for action buttons"
+  },
+  "btnSave": {
+    "message": "Save",
+    "description": "Save button label"
+  },
+  "btnCancel": {
+    "message": "Cancel",
+    "description": "Cancel button label"
+  },
+  "btnEdit": {
+    "message": "Edit",
+    "description": "Edit button label"
+  },
+  "btnDelete": {
+    "message": "Delete",
+    "description": "Delete button label"
+  },
+  "btnAdd": {
+    "message": "Add",
+    "description": "Add button label"
+  },
+  "btnExport": {
+    "message": "Export",
+    "description": "Export button label"
+  },
+  "btnImport": {
+    "message": "Import",
+    "description": "Import button label"
+  },
+  "btnResetDefaults": {
+    "message": "Reset to defaults",
+    "description": "Reset to defaults button label"
+  },
+  "confirmReset": {
+    "message": "Reset all jump targets to defaults? This will remove any custom targets.",
+    "description": "Confirmation message for reset to defaults"
+  },
+  "confirmImport": {
+    "message": "This will replace all current targets. Continue?",
+    "description": "Confirmation message for importing targets"
+  },
+  "confirmDelete": {
+    "message": "Delete jump target \"$KEY$\"?",
+    "description": "Confirmation message for deleting a target",
+    "placeholders": {
+      "key": {
+        "content": "$1",
+        "example": "gh"
+      }
+    }
+  },
+  "alertInvalidJsonObject": {
+    "message": "Invalid file: expected a JSON object.",
+    "description": "Alert for invalid import file format"
+  },
+  "alertInvalidTarget": {
+    "message": "Invalid target for key \"$KEY$\": each value must have \"url\" and \"description\" strings.",
+    "description": "Alert for invalid target in import file",
+    "placeholders": {
+      "key": {
+        "content": "$1",
+        "example": "gh"
+      }
+    }
+  },
+  "alertInvalidJson": {
+    "message": "Invalid JSON file.",
+    "description": "Alert for unparseable JSON"
+  },
+  "validationUrlRequired": {
+    "message": "URL is required",
+    "description": "Validation error when URL is empty"
+  },
+  "validationUrlInvalid": {
+    "message": "URL must start with http:// or https://",
+    "description": "Validation error when URL has wrong protocol"
+  },
+  "validationDescRequired": {
+    "message": "Description is required",
+    "description": "Validation error when description is empty"
+  },
+  "validationKeyRequired": {
+    "message": "Key is required",
+    "description": "Validation error when key is empty"
+  },
+  "validationKeyWhitespace": {
+    "message": "Key must not contain whitespace",
+    "description": "Validation error when key has spaces"
+  },
+  "errorNotLoaded": {
+    "message": "Not loaded yet",
+    "description": "Error when trying to mutate before data is loaded"
+  },
+  "errorKeyExists": {
+    "message": "Key \"$KEY$\" already exists",
+    "description": "Error when adding a duplicate key",
+    "placeholders": {
+      "key": {
+        "content": "$1",
+        "example": "gh"
+      }
+    }
+  },
+  "placeholderKey": {
+    "message": "key",
+    "description": "Placeholder for key input"
+  },
+  "placeholderUrl": {
+    "message": "https://example.com",
+    "description": "Placeholder for URL input"
+  },
+  "placeholderDescription": {
+    "message": "Description",
+    "description": "Placeholder for description input"
+  },
+  "themeAuto": {
+    "message": "Auto",
+    "description": "Auto theme option"
+  },
+  "themeLight": {
+    "message": "Light",
+    "description": "Light theme option"
+  },
+  "themeDark": {
+    "message": "Dark",
+    "description": "Dark theme option"
+  },
+  "dialogOk": {
+    "message": "OK",
+    "description": "OK button label in dialogs"
+  },
+  "dialogConfirm": {
+    "message": "Confirm",
+    "description": "Confirm button label in dialogs"
+  },
+  "toastTargetAdded": {
+    "message": "Target added",
+    "description": "Toast shown after adding a target"
+  },
+  "toastTargetUpdated": {
+    "message": "Target updated",
+    "description": "Toast shown after updating a target"
+  },
+  "toastTargetDeleted": {
+    "message": "Target deleted",
+    "description": "Toast shown after deleting a target"
+  },
+  "toastImportSuccess": {
+    "message": "Targets imported",
+    "description": "Toast shown after successful import"
+  },
+  "toastExportSuccess": {
+    "message": "Targets exported",
+    "description": "Toast shown after successful export"
+  },
+  "toastResetSuccess": {
+    "message": "Reset to defaults",
+    "description": "Toast shown after resetting to defaults"
+  },
+  "toastSaveFailed": {
+    "message": "Failed to save. Please try again.",
+    "description": "Toast shown when a storage save fails"
+  },
+  "onboardingTitle": {
+    "message": "Quick start",
+    "description": "Onboarding section title"
+  },
+  "onboardingIntro": {
+    "message": "Jump! lets you navigate to your favorite sites straight from the address bar.",
+    "description": "Onboarding intro sentence"
+  },
+  "onboardingStep1": {
+    "message": "Click the address bar (or press Ctrl+L / Cmd+L)",
+    "description": "Onboarding step 1"
+  },
+  "onboardingStep2": {
+    "message": "Type j and press Space or Tab",
+    "description": "Onboarding step 2"
+  },
+  "onboardingStep3": {
+    "message": "Type a shortcut (e.g. g) and press Enter",
+    "description": "Onboarding step 3"
+  },
+  "onboardingExample": {
+    "message": "Try it: j → Space → g → Enter opens GitHub",
+    "description": "Onboarding example callout"
+  },
+  "onboardingDismiss": {
+    "message": "Got it!",
+    "description": "Onboarding dismiss button"
+  },
+  "popupShowOnboarding": {
+    "message": "How to use",
+    "description": "Footer link to re-show onboarding"
+  }
+}

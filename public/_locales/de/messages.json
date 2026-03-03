@@ -1,0 +1,185 @@
+{
+  "extName": {
+    "message": "Jump!"
+  },
+  "extDescription": {
+    "message": "Schnell zu konfigurierten URLs springen"
+  },
+  "loading": {
+    "message": "Laden\u2026"
+  },
+  "popupHeading": {
+    "message": "Jump!"
+  },
+  "popupEmpty": {
+    "message": "Keine Sprungziele konfiguriert."
+  },
+  "popupEditTargets": {
+    "message": "Ziele bearbeiten"
+  },
+  "optionsHeading": {
+    "message": "Jump! \u2014 Konfiguration"
+  },
+  "colKey": {
+    "message": "K\u00fcrzel"
+  },
+  "colUrl": {
+    "message": "URL"
+  },
+  "colDescription": {
+    "message": "Beschreibung"
+  },
+  "colActions": {
+    "message": "Aktionen"
+  },
+  "btnSave": {
+    "message": "Speichern"
+  },
+  "btnCancel": {
+    "message": "Abbrechen"
+  },
+  "btnEdit": {
+    "message": "Bearbeiten"
+  },
+  "btnDelete": {
+    "message": "L\u00f6schen"
+  },
+  "btnAdd": {
+    "message": "Hinzuf\u00fcgen"
+  },
+  "btnExport": {
+    "message": "Exportieren"
+  },
+  "btnImport": {
+    "message": "Importieren"
+  },
+  "btnResetDefaults": {
+    "message": "Auf Standard zur\u00fccksetzen"
+  },
+  "confirmReset": {
+    "message": "Alle Sprungziele auf Standardwerte zur\u00fccksetzen? Benutzerdefinierte Ziele werden dabei entfernt."
+  },
+  "confirmImport": {
+    "message": "Alle aktuellen Ziele werden ersetzt. Fortfahren?"
+  },
+  "confirmDelete": {
+    "message": "Sprungziel \"$KEY$\" l\u00f6schen?",
+    "placeholders": {
+      "key": {
+        "content": "$1",
+        "example": "gh"
+      }
+    }
+  },
+  "alertInvalidJsonObject": {
+    "message": "Ung\u00fcltige Datei: Es wird ein JSON-Objekt erwartet."
+  },
+  "alertInvalidTarget": {
+    "message": "Ung\u00fcltiges Ziel f\u00fcr K\u00fcrzel \"$KEY$\": Jeder Wert muss die Felder \"url\" und \"description\" als Zeichenketten enthalten.",
+    "placeholders": {
+      "key": {
+        "content": "$1",
+        "example": "gh"
+      }
+    }
+  },
+  "alertInvalidJson": {
+    "message": "Ung\u00fcltige JSON-Datei."
+  },
+  "validationUrlRequired": {
+    "message": "URL ist erforderlich"
+  },
+  "validationUrlInvalid": {
+    "message": "URL muss mit http:// oder https:// beginnen"
+  },
+  "validationDescRequired": {
+    "message": "Beschreibung ist erforderlich"
+  },
+  "validationKeyRequired": {
+    "message": "K\u00fcrzel ist erforderlich"
+  },
+  "validationKeyWhitespace": {
+    "message": "K\u00fcrzel darf keine Leerzeichen enthalten"
+  },
+  "errorNotLoaded": {
+    "message": "Noch nicht geladen"
+  },
+  "errorKeyExists": {
+    "message": "K\u00fcrzel \"$KEY$\" existiert bereits",
+    "placeholders": {
+      "key": {
+        "content": "$1",
+        "example": "gh"
+      }
+    }
+  },
+  "placeholderKey": {
+    "message": "K\u00fcrzel"
+  },
+  "placeholderUrl": {
+    "message": "https://beispiel.de"
+  },
+  "placeholderDescription": {
+    "message": "Beschreibung"
+  },
+  "themeAuto": {
+    "message": "Auto"
+  },
+  "themeLight": {
+    "message": "Hell"
+  },
+  "themeDark": {
+    "message": "Dunkel"
+  },
+  "dialogOk": {
+    "message": "OK"
+  },
+  "dialogConfirm": {
+    "message": "Bestätigen"
+  },
+  "toastTargetAdded": {
+    "message": "Ziel hinzugefügt"
+  },
+  "toastTargetUpdated": {
+    "message": "Ziel aktualisiert"
+  },
+  "toastTargetDeleted": {
+    "message": "Ziel gelöscht"
+  },
+  "toastImportSuccess": {
+    "message": "Ziele importiert"
+  },
+  "toastExportSuccess": {
+    "message": "Ziele exportiert"
+  },
+  "toastResetSuccess": {
+    "message": "Auf Standard zurückgesetzt"
+  },
+  "toastSaveFailed": {
+    "message": "Speichern fehlgeschlagen. Bitte erneut versuchen."
+  },
+  "onboardingTitle": {
+    "message": "Schnellstart"
+  },
+  "onboardingIntro": {
+    "message": "Mit Jump! navigierst du direkt aus der Adressleiste zu deinen Lieblingsseiten."
+  },
+  "onboardingStep1": {
+    "message": "Klicke in die Adressleiste (oder drücke Strg+L / Cmd+L)"
+  },
+  "onboardingStep2": {
+    "message": "Tippe j und drücke Leertaste oder Tab"
+  },
+  "onboardingStep3": {
+    "message": "Tippe ein Kürzel (z.\u00a0B. g) und drücke Enter"
+  },
+  "onboardingExample": {
+    "message": "Probier es: j → Leertaste → g → Enter öffnet GitHub"
+  },
+  "onboardingDismiss": {
+    "message": "Verstanden!"
+  },
+  "popupShowOnboarding": {
+    "message": "So funktioniert's"
+  }
+}

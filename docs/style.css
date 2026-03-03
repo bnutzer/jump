@@ -1,0 +1,453 @@
+/* ==========================================================================
+   Jump! — Landing page styles (dark theme only)
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Bungee';
+    src: url('fonts/Bungee-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Palette */
+    --jump-teal: #4ecdc4;
+    --jump-mint: #a8e6cf;
+    --jump-green: #56c596;
+    --jump-deep-teal: #2ab7a9;
+    --jump-cyan: #7dd3e0;
+
+    --gradient-primary: linear-gradient(
+        135deg,
+        #56c596 0%,
+        #4ecdc4 50%,
+        #7dd3e0 100%
+    );
+
+    /* Dark theme tokens */
+    --color-bg: #1a2332;
+    --color-bg-secondary: #212d3f;
+    --color-bg-hover: #283548;
+    --color-text: #e0e8f0;
+    --color-text-secondary: #8899a8;
+    --color-border: #2d3f52;
+
+    --color-primary: #4ecdc4;
+    --color-primary-hover: #62d8d0;
+    --color-primary-text: #1a2332;
+
+    --color-link: #5fd8d0;
+    --color-link-hover: #78e4dd;
+
+    --color-shadow: rgba(0, 0, 0, 0.25);
+    --color-shadow-md: rgba(0, 0, 0, 0.35);
+
+    --radius: 8px;
+    --radius-sm: 5px;
+    --radius-lg: 12px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto,
+        sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+code, kbd {
+    font-family:
+        ui-monospace, 'SF Mono', 'Cascadia Code', 'Source Code Pro', Menlo,
+        monospace;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    padding: 2px 7px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+section {
+    padding: 72px 0;
+}
+
+/* ---------- Nav ---------- */
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26, 35, 50, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav .container {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    gap: 32px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Bungee', sans-serif;
+    font-size: 18px;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.nav-brand:hover {
+    color: var(--color-text);
+}
+
+.nav-brand img {
+    height: 28px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin-left: auto;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color 0.15s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-text);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    text-align: center;
+    padding: 96px 0 80px;
+}
+
+.hero-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-family: 'Bungee', sans-serif;
+    font-size: 56px;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero .tagline {
+    font-size: 20px;
+    color: var(--color-text-secondary);
+    max-width: 520px;
+    margin: 0 auto 36px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary-text);
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.btn-cta:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    color: var(--color-primary-text);
+}
+
+/* ---------- Section headings ---------- */
+
+.section-title {
+    font-family: 'Bungee', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    margin-bottom: 48px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- Features ---------- */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.feature-card:hover {
+    border-color: var(--jump-teal);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* ---------- Screenshots ---------- */
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.screenshots-grid figure {
+    margin: 0;
+}
+
+.screenshots-grid img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px var(--color-shadow-md);
+}
+
+.screenshots-grid figcaption {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+/* ---------- How it works ---------- */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    counter-reset: step;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: var(--color-primary-text);
+    font-family: 'Bungee', sans-serif;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.step h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.step p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* ---------- Install CTA ---------- */
+
+.install-section {
+    text-align: center;
+}
+
+.install-section .btn-cta {
+    margin-bottom: 16px;
+}
+
+.install-secondary {
+    display: block;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.install-secondary a {
+    font-weight: 500;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 32px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.footer-links a:hover {
+    color: var(--color-text);
+}
+
+.footer-credit {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero .tagline {
+        font-size: 17px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .screenshots-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 64px 0 56px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-logo {
+        width: 120px;
+    }
+
+    section {
+        padding: 48px 0;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .site-nav .container {
+        gap: 16px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
