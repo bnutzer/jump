@@ -1,0 +1,1 @@
+Jump! is a Chrome extension that lets you navigate to your favorite URLs instantly -- from the address bar or with a single click. It lets you configure shortcuts for your most commonly used web sites -- when bookmarks are just too slow.

@@ -1,0 +1,26 @@
+{
+  "d": {
+    "url": "https://duckduckgo.com/",
+    "description": "DuckDuck Go"
+  },
+  "g": {
+    "url": "https://github.com/bnutzer/jump",
+    "description": "Jump! github repository"
+  },
+  "j": {
+    "url": "https://www.jump-shortcuts.click/",
+    "description": "Jump! web site"
+  },
+  "cws": {
+    "url": "https://chromewebstore.google.com/",
+    "description": "Chrome Web Store"
+  },
+  "w": {
+    "url": "https://wikipedia.org",
+    "description": "Wikipedia"
+  },
+  "e": {
+    "url": "https://example.com",
+    "description": "Yet another example"
+  }
+}
