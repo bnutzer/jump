@@ -16,9 +16,7 @@ export default function Onboarding({ onDismiss }: OnboardingProps) {
                 <li>{t('onboardingStep3')}</li>
             </ol>
 
-            <div className="onboarding-example">
-                {t('onboardingExample')}
-            </div>
+            <div className="onboarding-example">{t('onboardingExample')}</div>
 
             <button className="onboarding-dismiss" onClick={onDismiss}>
                 {t('onboardingDismiss')}

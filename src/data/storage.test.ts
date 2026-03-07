@@ -16,7 +16,9 @@ function createStorageAreaMock() {
             const keyList = typeof keys === 'string' ? [keys] : keys;
             const result: Record<string, unknown> = {};
             for (const k of keyList) {
-                if (k in store) result[k] = store[k];
+                if (k in store) {
+                    result[k] = store[k];
+                }
             }
             return Promise.resolve(result);
         }),

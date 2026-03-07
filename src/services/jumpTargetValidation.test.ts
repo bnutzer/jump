@@ -81,13 +81,13 @@ describe('validateNewTarget', () => {
     });
 
     it('delegates to validateTarget for url/description checks', () => {
-        expect(
-            validateNewTarget('newkey', '', 'Example', existing),
-        ).toBe('validationUrlRequired');
+        expect(validateNewTarget('newkey', '', 'Example', existing)).toBe(
+            'validationUrlRequired',
+        );
 
-        expect(
-            validateNewTarget('newkey', 'bad', 'Example', existing),
-        ).toBe('validationUrlInvalid');
+        expect(validateNewTarget('newkey', 'bad', 'Example', existing)).toBe(
+            'validationUrlInvalid',
+        );
 
         expect(
             validateNewTarget('newkey', 'https://example.com', '', existing),

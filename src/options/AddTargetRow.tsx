@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { validateNewTarget } from '../services/jumpTargetValidation';
-import {t} from "../i18n";
+import { t } from '../i18n';
 
 interface Props {
     existingKeys: string[];

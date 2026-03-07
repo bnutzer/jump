@@ -161,7 +161,10 @@ export default function App() {
                         />
                     ))}
                 </tbody>
-                <AddTargetRow existingKeys={targets.map(t => t.key)} onAdd={handleAdd} />
+                <AddTargetRow
+                    existingKeys={targets.map((t) => t.key)}
+                    onAdd={handleAdd}
+                />
             </table>
 
             <input
