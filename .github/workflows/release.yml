@@ -1,0 +1,124 @@
+name: Release & Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Build, Release & Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed for creating GitHub Releases
+    env:
+      # Set to 'true' if CWS secrets are configured, used to conditionally
+      # skip Chrome Web Store publishing until after the first manual upload.
+      HAS_CWS_SECRETS: ${{ secrets.CWS_EXTENSION_ID != '' && 'true' || 'false' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate version matches tag
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION=$(jq -r '.version' public/manifest.json)
+          PACKAGE_VERSION=$(jq -r '.version' package.json)
+          if [ "$TAG_VERSION" != "$MANIFEST_VERSION" ]; then
+            echo "::error::Tag version ($TAG_VERSION) does not match manifest.json version ($MANIFEST_VERSION)"
+            exit 1
+          fi
+          if [ "$TAG_VERSION" != "$PACKAGE_VERSION" ]; then
+            echo "::error::Tag version ($TAG_VERSION) does not match package.json version ($PACKAGE_VERSION)"
+            exit 1
+          fi
+          echo "VERSION=$TAG_VERSION" >> "$GITHUB_ENV"
+          echo "Version validated: $TAG_VERSION"
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Create extension ZIP
+        run: cd dist && zip -r ../jump-extension-v${{ env.VERSION }}.zip .
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "jump-extension-v${{ env.VERSION }}.zip" \
+            --title "Jump! v${{ env.VERSION }}" \
+            --generate-notes
+
+      - name: Publish to Chrome Web Store
+        if: env.HAS_CWS_SECRETS == 'true'
+        env:
+          CWS_CLIENT_ID: ${{ secrets.CWS_CLIENT_ID }}
+          CWS_CLIENT_SECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+          CWS_REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+          CWS_EXTENSION_ID: ${{ secrets.CWS_EXTENSION_ID }}
+        run: |
+          # Obtain OAuth2 access token
+          TOKEN_RESPONSE=$(curl -sf "https://oauth2.googleapis.com/token" \
+            -d "client_id=$CWS_CLIENT_ID" \
+            -d "client_secret=$CWS_CLIENT_SECRET" \
+            -d "refresh_token=$CWS_REFRESH_TOKEN" \
+            -d "grant_type=refresh_token")
+
+          ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token')
+          if [ -z "$ACCESS_TOKEN" ] || [ "$ACCESS_TOKEN" = "null" ]; then
+            echo "::error::Failed to obtain access token from Google OAuth2"
+            echo "$TOKEN_RESPONSE" | jq .
+            exit 1
+          fi
+
+          # Upload extension ZIP to Chrome Web Store
+          UPLOAD_RESPONSE=$(curl -s \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "x-goog-api-version: 2" \
+            -X PUT \
+            -T "jump-extension-v${{ env.VERSION }}.zip" \
+            "https://www.googleapis.com/upload/chromewebstore/v1.1/items/$CWS_EXTENSION_ID")
+
+          UPLOAD_STATUS=$(echo "$UPLOAD_RESPONSE" | jq -r '.uploadState')
+          if [ "$UPLOAD_STATUS" != "SUCCESS" ]; then
+            echo "::error::Chrome Web Store upload failed"
+            echo "$UPLOAD_RESPONSE" | jq .
+            exit 1
+          fi
+          echo "Upload successful"
+
+          # Publish the uploaded version
+          PUBLISH_RESPONSE=$(curl -s \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "x-goog-api-version: 2" \
+            -H "Content-Length: 0" \
+            -X POST \
+            "https://www.googleapis.com/chromewebstore/v1.1/items/$CWS_EXTENSION_ID/publish")
+
+          PUBLISH_STATUS=$(echo "$PUBLISH_RESPONSE" | jq -r '.status[0]')
+          if [ "$PUBLISH_STATUS" != "OK" ] && [ "$PUBLISH_STATUS" != "ITEM_PENDING_REVIEW" ]; then
+            echo "::error::Chrome Web Store publish failed"
+            echo "$PUBLISH_RESPONSE" | jq .
+            exit 1
+          fi
+          echo "Successfully published Jump! v${{ env.VERSION }} to Chrome Web Store (status: $PUBLISH_STATUS)"
