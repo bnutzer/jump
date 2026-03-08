@@ -19,12 +19,12 @@ function msg(key: string, ...subs: string[]): string {
     return chrome.i18n.getMessage(key, subs) || key;
 }
 
-async function getUrlForShortcut(
-    text: string,
-): Promise<string | undefined> {
+async function getUrlForShortcut(text: string): Promise<string | undefined> {
     const map = await loadJumpMap();
     const key = text.trim();
-    if (key in map) return map[key].url;
+    if (key in map) {
+        return map[key].url;
+    }
     // Case-insensitive fallback
     const match = Object.keys(map).find(
         (k) => k.toLowerCase() === key.toLowerCase(),
@@ -68,14 +68,10 @@ chrome.omnibox.onInputStarted.addListener(async () => {
 chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
     const map = await loadJumpMap();
     const input = text.trim().toLowerCase();
-    const entries = Object.entries(map).sort(([a], [b]) =>
-        a.localeCompare(b),
-    );
+    const entries = Object.entries(map).sort(([a], [b]) => a.localeCompare(b));
 
     // Update default suggestion based on current input
-    const exactKey = Object.keys(map).find(
-        (k) => k.toLowerCase() === input,
-    );
+    const exactKey = Object.keys(map).find((k) => k.toLowerCase() === input);
     const exactMatch = exactKey ? map[exactKey] : undefined;
 
     if (exactMatch) {
@@ -98,7 +94,9 @@ chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
     const otherMatches: chrome.omnibox.SuggestResult[] = [];
 
     for (const [key, target] of entries) {
-        if (key.toLowerCase() === input) continue;
+        if (key.toLowerCase() === input) {
+            continue;
+        }
 
         const suggestion: chrome.omnibox.SuggestResult = {
             content: key,

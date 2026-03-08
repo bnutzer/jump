@@ -89,7 +89,9 @@ export default function App() {
                 if (result.error === 'invalidJson') {
                     await showAlert(t('alertInvalidJson'));
                 } else if (result.error === 'tooManyTargets') {
-                    await showAlert(t('alertTooManyTargets', String(MAX_TARGETS)));
+                    await showAlert(
+                        t('alertTooManyTargets', String(MAX_TARGETS)),
+                    );
                 } else if (result.failureKey) {
                     await showAlert(t('alertInvalidTarget', result.failureKey));
                 } else {
