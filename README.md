@@ -14,7 +14,7 @@ Jump! is a Chrome extension that lets you navigate to your favorite URLs instant
 
 ### Chrome Web Store
 
-*Coming soon* — [jump-shortcuts.click](https://jump-shortcuts.click)
+[Install Jump! from the Chrome Web Store](https://chromewebstore.google.com/detail/jump/fphifjlgcdcfapekfnkdchoimgbfkdfn)
 
 ### Build from source
 

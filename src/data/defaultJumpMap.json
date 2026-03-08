@@ -10,5 +10,9 @@
     "j": {
         "url": "https://www.jump-shortcuts.click/",
         "description": "Jump! web site (SAMPLE)"
+    },
+    "cws": {
+        "url": "https://chromewebstore.google.com/detail/jump/fphifjlgcdcfapekfnkdchoimgbfkdfn",
+        "description": "Jump! in Chrome Web Store (SAMPLE)"
     }
 }
