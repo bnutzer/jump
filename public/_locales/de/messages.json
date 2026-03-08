@@ -181,5 +181,19 @@
   },
   "popupShowOnboarding": {
     "message": "So funktioniert's"
+  },
+  "omniboxDefaultHint": {
+    "message": "K\u00fcrzel eingeben zum Springen"
+  },
+  "omniboxAvailable": {
+    "message": "verf\u00fcgbar: $KEYS$",
+    "placeholders": {
+      "keys": {
+        "content": "$1"
+      }
+    }
+  },
+  "omniboxNoMatch": {
+    "message": "Kein passendes K\u00fcrzel \u2014 Enter dr\u00fccken f\u00fcr Einstellungen"
   }
 }

@@ -236,5 +236,23 @@
   "popupShowOnboarding": {
     "message": "How to use",
     "description": "Footer link to re-show onboarding"
+  },
+  "omniboxDefaultHint": {
+    "message": "Type a shortcut to jump",
+    "description": "Default omnibox hint when activated"
+  },
+  "omniboxAvailable": {
+    "message": "available: $KEYS$",
+    "description": "Shows available shortcut keys in omnibox",
+    "placeholders": {
+      "keys": {
+        "content": "$1",
+        "example": "g, ddg, jump"
+      }
+    }
+  },
+  "omniboxNoMatch": {
+    "message": "No matching shortcut \u2014 press Enter to open settings",
+    "description": "Shown in omnibox when no shortcut matches the input"
   }
 }
