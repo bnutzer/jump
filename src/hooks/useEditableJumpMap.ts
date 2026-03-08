@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { JumpTarget, SortedJumpTarget, defaultJumpMap } from '../data/jumpMap';
+import { JumpTarget, SortedJumpTarget, defaultJumpMap, MAX_TARGETS } from '../data/jumpMap';
 import { t } from '../i18n';
 import { loadJumpMap, saveJumpMap } from '../data/storage';
 
@@ -29,6 +29,9 @@ export function useEditableJumpMap() {
     ): Promise<MutationResult> {
         if (!map) {
             return { ok: false, reason: t('errorNotLoaded') };
+        }
+        if (Object.keys(map).length >= MAX_TARGETS) {
+            return { ok: false, reason: t('errorTooManyTargets', String(MAX_TARGETS)) };
         }
         if (key in map) {
             return { ok: false, reason: t('errorKeyExists', key) };

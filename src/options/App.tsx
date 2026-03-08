@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { t } from '../i18n';
+import { MAX_TARGETS } from '../data/jumpMap';
 import { useEditableJumpMap } from '../hooks/useEditableJumpMap';
 import { downloadJumpMapAsJson } from '../services/jumpMapExport';
 import { parseAndValidateJumpMap } from '../services/jumpMapImport';
@@ -87,6 +88,8 @@ export default function App() {
             if (!result.ok) {
                 if (result.error === 'invalidJson') {
                     await showAlert(t('alertInvalidJson'));
+                } else if (result.error === 'tooManyTargets') {
+                    await showAlert(t('alertTooManyTargets', String(MAX_TARGETS)));
                 } else if (result.failureKey) {
                     await showAlert(t('alertInvalidTarget', result.failureKey));
                 } else {

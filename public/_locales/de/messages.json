@@ -113,6 +113,24 @@
       }
     }
   },
+  "errorTooManyTargets": {
+    "message": "Maximale Anzahl von $MAX$ Zielen erreicht",
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "alertTooManyTargets": {
+    "message": "Import enthält zu viele Ziele (max. $MAX$).",
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
   "placeholderKey": {
     "message": "K\u00fcrzel"
   },

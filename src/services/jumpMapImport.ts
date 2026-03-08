@@ -1,10 +1,10 @@
-import { JumpTarget } from '../data/jumpMap';
+import { JumpTarget, MAX_TARGETS } from '../data/jumpMap';
 
 type ImportResult =
     | { ok: true; map: Record<string, JumpTarget> }
     | {
           ok: false;
-          error: 'invalidJson' | 'invalidStructure';
+          error: 'invalidJson' | 'invalidStructure' | 'tooManyTargets';
           failureKey?: string;
       };
 
@@ -33,7 +33,13 @@ export function parseAndValidateJumpMap(jsonString: string): ImportResult {
         return { ok: false, error: 'invalidStructure' };
     }
 
-    for (const [key, value] of Object.entries(parsed)) {
+    const entries = Object.entries(parsed);
+
+    if (entries.length > MAX_TARGETS) {
+        return { ok: false, error: 'tooManyTargets' };
+    }
+
+    for (const [key, value] of entries) {
         const target = value as Record<string, unknown>;
         if (!isValidTarget(target)) {
             return { ok: false, error: 'invalidStructure', failureKey: key };

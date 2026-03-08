@@ -145,6 +145,26 @@
       }
     }
   },
+  "errorTooManyTargets": {
+    "message": "Maximum of $MAX$ targets reached",
+    "description": "Error when the target limit is exceeded on manual add",
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "alertTooManyTargets": {
+    "message": "Import contains too many targets (max $MAX$).",
+    "description": "Alert when an import file exceeds the target limit",
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
   "placeholderKey": {
     "message": "key",
     "description": "Placeholder for key input"
