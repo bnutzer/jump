@@ -5,6 +5,9 @@ import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   base: './',
+  define: {
+    __BROWSER__: JSON.stringify(process.env.BROWSER || 'chrome'),
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

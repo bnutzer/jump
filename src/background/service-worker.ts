@@ -15,6 +15,11 @@ function escapeXml(text: string): string {
         .replace(/>/g, '&gt;');
 }
 
+/** Wrap text in an XML tag for Chrome omnibox styling; strip for Firefox. */
+function xmlTag(tag: string, text: string): string {
+    return __BROWSER__ === 'firefox' ? text : `<${tag}>${text}</${tag}>`;
+}
+
 function msg(key: string, ...subs: string[]): string {
     return chrome.i18n.getMessage(key, subs) || key;
 }
@@ -52,7 +57,8 @@ function buildAvailableKeysHint(keys: string[]): string {
         .map((k) => escapeXml(k))
         .join(', ');
     const suffix = keys.length > 8 ? ', \u2026' : '';
-    return `${msg('omniboxDefaultHint')} <dim>\u2014 ${msg('omniboxAvailable', displayKeys + suffix)}</dim>`;
+    return `${msg('omniboxDefaultHint')} ${xmlTag('dim', `\u2014 ${msg('omniboxAvailable', displayKeys + suffix)}`)}`;
+
 }
 
 // Show available shortcuts when omnibox activates
@@ -76,11 +82,11 @@ chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
 
     if (exactMatch) {
         chrome.omnibox.setDefaultSuggestion({
-            description: `<match>${escapeXml(exactMatch.description)}</match> <url>${escapeXml(exactMatch.url)}</url>`,
+            description: `${xmlTag('match', escapeXml(exactMatch.description))} ${xmlTag('url', escapeXml(exactMatch.url))}`,
         });
     } else if (input) {
         chrome.omnibox.setDefaultSuggestion({
-            description: `<dim>${escapeXml(msg('omniboxNoMatch'))}</dim>`,
+            description: xmlTag('dim', escapeXml(msg('omniboxNoMatch'))),
         });
     } else {
         const keys = Object.keys(map).sort();
@@ -100,7 +106,7 @@ chrome.omnibox.onInputChanged.addListener(async (text, suggest) => {
 
         const suggestion: chrome.omnibox.SuggestResult = {
             content: key,
-            description: `<match>${escapeXml(key)}</match> <dim>\u2014</dim> ${escapeXml(target.description)} <url>${escapeXml(target.url)}</url>`,
+            description: `${xmlTag('match', escapeXml(key))} ${xmlTag('dim', '\u2014')} ${escapeXml(target.description)} ${xmlTag('url', escapeXml(target.url))}`,
         };
 
         if (!input || key.toLowerCase().startsWith(input)) {
