@@ -2,3 +2,5 @@
 node_modules/
 dist/
 .claude/settings.local.json
+jump-extension.zip
+jump-extension-firefox.zip
