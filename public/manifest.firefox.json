@@ -1,14 +1,16 @@
 {
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "manifest_version": 3,
   "default_locale": "en",
   "omnibox": {
     "keyword": "j"
   },
   "background": {
-    "scripts": ["service-worker.js"],
+    "scripts": [
+      "service-worker.js"
+    ],
     "type": "module"
   },
   "permissions": [
