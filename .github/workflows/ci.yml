@@ -31,14 +31,26 @@ jobs:
       - name: Test
         run: npm test
 
-      - name: Build
+      - name: Build (Chrome)
         run: npm run build
 
-      - name: Create extension ZIP
+      - name: Create Chrome extension ZIP
         run: cd dist && zip -r ../jump-extension.zip .
 
-      - name: Upload artifact
+      - name: Build (Firefox)
+        run: npm run build:firefox
+
+      - name: Create Firefox extension ZIP
+        run: cd dist && zip -r ../jump-extension-firefox.zip .
+
+      - name: Upload Chrome artifact
         uses: actions/upload-artifact@v4
         with:
           name: jump-extension
           path: jump-extension.zip
+
+      - name: Upload Firefox artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jump-extension-firefox
+          path: jump-extension-firefox.zip

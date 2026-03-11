@@ -27,6 +27,11 @@ jq --arg v "$VERSION" '.version = $v' "$SCRIPT_DIR/public/manifest.json" > "$SCR
   && mv "$SCRIPT_DIR/public/manifest.json.tmp" "$SCRIPT_DIR/public/manifest.json"
 echo "Updated public/manifest.json to version $VERSION"
 
+# Update public/manifest.firefox.json
+jq --arg v "$VERSION" '.version = $v' "$SCRIPT_DIR/public/manifest.firefox.json" > "$SCRIPT_DIR/public/manifest.firefox.json.tmp" \
+  && mv "$SCRIPT_DIR/public/manifest.firefox.json.tmp" "$SCRIPT_DIR/public/manifest.firefox.json"
+echo "Updated public/manifest.firefox.json to version $VERSION"
+
 # Ask about git tag
 read -rp "Create git tag v$VERSION? [y/N] " CREATE_TAG
 if [[ "$CREATE_TAG" =~ ^[Yy]$ ]]; then
