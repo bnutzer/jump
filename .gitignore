@@ -4,3 +4,5 @@ dist/
 .claude/settings.local.json
 jump-extension.zip
 jump-extension-firefox.zip
+public/img/icon-*.png
+.DS_Store

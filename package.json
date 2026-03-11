@@ -14,9 +14,9 @@
     "format:check": "prettier --check src/",
     "test": "vitest run",
     "test:watch": "vitest",
-    "package": "npm test && npm run build && cd dist && zip -r ../jump-extension.zip .",
+    "package": "npm test && npm run build && cd dist && zip -r ../jump-extension.zip . -x '**/.DS_Store' -x '.DS_Store'",
     "build:firefox": "npm run icons && tsc --noEmit && BROWSER=firefox vite build && cp public/manifest.firefox.json dist/manifest.json",
-    "package:firefox": "npm test && npm run build:firefox && cd dist && zip -r ../jump-extension-firefox.zip ."
+    "package:firefox": "npm test && npm run build:firefox && cd dist && zip -r ../jump-extension-firefox.zip . -x '**/.DS_Store' -x '.DS_Store'"
   },
   "dependencies": {
     "react": "^19.2.4",
