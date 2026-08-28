@@ -58,7 +58,6 @@ function buildAvailableKeysHint(keys: string[]): string {
         .join(', ');
     const suffix = keys.length > 8 ? ', \u2026' : '';
     return `${msg('omniboxDefaultHint')} ${xmlTag('dim', `\u2014 ${msg('omniboxAvailable', displayKeys + suffix)}`)}`;
-
 }
 
 // Show available shortcuts when omnibox activates
