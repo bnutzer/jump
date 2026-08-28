@@ -16,7 +16,7 @@
  *   npm install -D @types/opentype.js
  */
 
-import { writeFileSync, mkdirSync, existsSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
 import opentype from "opentype.js";
 import { Resvg } from "@resvg/resvg-js";
@@ -136,7 +136,7 @@ function textToSvgPaths(
   centerX: number,
   centerY: number
 ): string {
-  const font = opentype.loadSync(fontPath);
+  const font = opentype.parse(readFileSync(fontPath));
 
   // opentype.js getPath() returns a path with SVG commands.
   // We use it per-glyph to get individual paths and bounding boxes.
